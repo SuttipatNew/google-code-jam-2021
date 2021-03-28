@@ -20,20 +20,6 @@ def find_compat_batch_costs(n: int, c: int, batch_costs: List[int] = [], current
 
     return last_batch_cost_list_a + last_batch_cost_list_b
         
-# def find_list(n: int, batch_costs: List[int]) -> List[int]:
-#     l = list(range(1, n+1))
-#     for i in range(n - 2, -1, -1):
-#         sub_list_size = n - 1 - i + 1
-#         if sub_list_size in batch_costs:
-#             l = l[:i] + l[i:][::-1]
-#             batch_costs.remove(sub_list_size)
-#         elif 1 in batch_costs:
-#             batch_costs.remove(1)
-#         else:
-#             return
-#     if len(batch_costs) == 0:
-#         return l
-
 def find_list(n: int, batch_costs: List[int]) -> List[int]:
     l = list(range(1, n+1))
     for i, cost in enumerate(batch_costs):
