@@ -3,7 +3,6 @@
 using namespace std;
 
 int calCost(int n, int *reversePoints, int end) {
-    // cout << "calCost" << endl;
     int cost = 0;
     for (int i = 0; i < n - 1 && i <= end; i++) {
         if (reversePoints[i] == 1) {
@@ -16,15 +15,12 @@ int calCost(int n, int *reversePoints, int end) {
 }
 
 void copyReversePoint(int n, int *src, int *target) {
-    // cout << "copyReversePoint" << endl;
     for (int i = 0; i < n; i++) {
         target[i] = src[i];
     }
 }
 
 int calMaxCost(int start, int end) {
-    // cout << "calMaxCost" << endl;
-    // return (end - start + 1) / 2 * (start + end);
     int cost = 0;
     for (int i = start; i < end; i++) {
         cost += i;
@@ -33,7 +29,6 @@ int calMaxCost(int start, int end) {
 }
 
 void initReversePoints(int *reversePoints, int n) {
-    // cout << "initReversePoints" << endl;
     for (int i = 0; i < n - 1; i++) {
         reversePoints[i] = -1;
     }
@@ -48,14 +43,6 @@ void printReversePoints(int* reversePoints, int size) {
 
 int* findReversePoint(int n, int c, int* reversePoints, bool *found,
     int currentIndex) {
-    // cout << "findReversePoint" << endl;
-    // cout << currentIndex << endl;
-    // if (reversePoints != 0) {
-    //     printReversePoints(reversePoints, n-1);
-    // } else {
-    //     cout << 0 << endl;
-    // }
-
     if (*found) {
         return 0;
     }
@@ -71,7 +58,6 @@ int* findReversePoint(int n, int c, int* reversePoints, bool *found,
         || calCost(n, reversePoints, currentIndex-1) >= c) {
         return 0;
     }
-    // cout << "after cal cost" << endl;
 
     if (reversePoints == 0) {
         reversePoints = (int *)malloc(sizeof(int) * (n-1));
@@ -93,7 +79,6 @@ int* findReversePoint(int n, int c, int* reversePoints, bool *found,
 }
 
 void reverse(int *arr, int start, int end) {
-    // cout << "reverse" << endl;
     int size = end - start;
     int tmp[size];
     for (int i = 0; i < size; i++) {
@@ -105,10 +90,7 @@ void reverse(int *arr, int start, int end) {
 }
 
 void generateReverseArray(int *arr, int n, int *reversePoints) {
-    // cout << "generateReverseArray" << endl;
     for (int i = 0; i < n-1; i++) {
-        // cout << "reversing" << endl;
-        // cout << i << endl;
         if (reversePoints[i]) {
             reverse(arr, n - i - 2, n);
         }
@@ -116,14 +98,12 @@ void generateReverseArray(int *arr, int n, int *reversePoints) {
 }
 
 void initReverseArray(int *arr, int n) {
-    // cout << "initReverseArray" << endl;
     for (int i = 0; i < n; i++) {
         arr[i] = i + 1;
     }
 }
 
 void printResult(int *arr, int n) {
-    // cout << "printResult" << endl;
     for (int i = 0; i < n; i++) {
         cout << arr[i] << ((i < n - 1) ? " " : "");
     }
